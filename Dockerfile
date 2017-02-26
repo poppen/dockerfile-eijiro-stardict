@@ -26,6 +26,6 @@ RUN grep '^# deb-src' /etc/apt/sources.list \
       debuild -us -uc -b -i ) \
  && dpkg -i ./*.deb \
  && apt-get -y autoremove \
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* /tmp/*
 
  WORKDIR /
