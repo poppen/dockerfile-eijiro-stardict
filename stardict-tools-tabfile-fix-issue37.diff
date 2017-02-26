@@ -1,0 +1,31 @@
+--- a/src/libtabfile.cpp
++++ b/src/libtabfile.cpp
+@@ -81,7 +81,8 @@
+ }
+ 
+ /* return: true - OK, false - error 
+-Dictionary index is not allowed to contain duplicates. */
++Dictionary index is allowed to contain duplicates in fact. */
++/*
+ static bool check_duplicate_words(GArray *array, print_info_t print_info)
+ {
+ 	if(array->len < 2)
+@@ -100,6 +101,7 @@
+ 	}
+ 	return true;
+ }
++*/
+ 
+ static bool read_tab_file(gchar *buffer, GArray *array, print_info_t print_info)
+ {
+@@ -255,8 +257,8 @@
+ 		return false;
+ 	}
+ 	g_array_sort(array, comparefunc);
+-	if(!check_duplicate_words(array, print_info))
+-		return false;
++	//if(!check_duplicate_words(array, print_info))
++  //		return false;
+ 	
+ 	if(!write_dictionary(filename, array, print_info))
+ 		return false;
